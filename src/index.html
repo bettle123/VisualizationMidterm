@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<title>5544 midterm_project </title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdn.rawgit.com/riccardoscalco/textures/master/dist/textures.js"></script>
+<script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+<link rel="stylesheet" href="styles_1.css">
+
+</head>
+<body>
+<!-- this is a comment -->
+
+<h2>
+This is Su Ming-Yi and  Kaiwen Liu midterm project.
+</h2>
+<h2>
+Topic: Airline On-Time Performance and Causes of Flight Delays (2018 July)
+</h2>
+
+<!--------------------------------------------------------------->
+<fieldset style="width: 400px;left: 20px; top: 150px;">
+<legend><strong>Selection your departure info.</strong></legend>
+<p>
+<form>
+<table>
+<tr>
+<td style="text-align: left;">States:</td>
+<td style="text-align: left;">
+<select name="State_D" id="State_D" onChange="setcities_D();">
+  <option value="AK">AK</option>
+  <option value="AL">AL</option>
+  <option value="AR">AR</option>
+  <option value="AZ">AZ</option>
+  <option value="CA">CA</option>
+  <option value="CO">CO</option>
+  <option value="CT">CT</option>
+  <option value="FL">FL</option>
+  <option value="GA">GA</option>
+  <option value="HI">HI</option>
+  <option value="IA">IA</option>
+  <option value="ID">ID</option>
+  <option value="IL">IL</option>
+  <option value="IN">IN</option>
+  <option value="KS">KS</option>
+  <option value="KY">KY</option>
+  <option value="LA">LA</option>
+  <option value="MA">MA</option>
+  <option value="MD">MD</option>
+  <option value="ME">ME</option>
+  <option value="MI">MI</option>
+  <option value="MN">MN</option>
+  <option value="MO">MO</option>
+  <option value="MS">MS</option>
+  <option value="MT">MT</option>
+  <option value="NC">NC</option>
+  <option value="ND">ND</option>
+  <option value="NE">NE</option>
+  <option value="NH">NH</option>
+  <option value="NJ">NJ</option>
+  <option value="NM">NM</option>
+  <option value="NV">NV</option>
+  <option value="NY">NY</option>
+  <option value="OH">OH</option>
+  <option value="OK">OK</option>
+  <option value="OR">OR</option>
+  <option value="PA">PA</option>
+  <option value="PR">PR</option>
+  <option value="RI">RI</option>
+  <option value="SC">SC</option>
+  <option value="SD">SD</option>
+  <option value="TN">TN</option>
+  <option value="TT">TT</option>
+  <option value="TX">TX</option>
+  <option value="UT">UT</option>
+  <option value="VA">VA</option>
+  <option value="VI">VI</option>
+  <option value="WA">WA</option>
+  <option value="WI">WI</option>
+  <option value="WV">WV</option>
+  <option value="WY">WY</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td style="text-align: left;">City:</td>
+<td style="text-align: left;">
+<select name="City_D" id="city_D" onChange="setairportID_D();">
+  <option value="">Please select a City </option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td style="text-align: left;">airport ID:</td>
+<td style="text-align: left;">
+<select name="AirportID_D" id="airportID_D" onChange="set_D();">
+  <option value="">Please select an airport ID </option>
+</select>
+</td>
+</tr>
+
+</table>
+</form>
+</fieldset>
+
+
+<fieldset style="width: 400px; left: 600px; top: 150px;">
+<legend><strong>Selection your arrival info.</strong></legend>
+<p>
+<form>
+<table>
+<tr>
+<td style="text-align: left;">States:</td>
+<td style="text-align: left;">
+<select name="State_A" id="State_A" onChange="setcities_A();">
+  <option value="AK">AK</option>
+  <option value="AL">AL</option>
+  <option value="AR">AR</option>
+  <option value="AZ">AZ</option>
+  <option value="CA">CA</option>
+  <option value="CO">CO</option>
+  <option value="CT">CT</option>
+  <option value="FL">FL</option>
+  <option value="GA">GA</option>
+  <option value="HI">HI</option>
+  <option value="IA">IA</option>
+  <option value="ID">ID</option>
+  <option value="IL">IL</option>
+  <option value="IN">IN</option>
+  <option value="KS">KS</option>
+  <option value="KY">KY</option>
+  <option value="LA">LA</option>
+  <option value="MA">MA</option>
+  <option value="MD">MD</option>
+  <option value="ME">ME</option>
+  <option value="MI">MI</option>
+  <option value="MN">MN</option>
+  <option value="MO">MO</option>
+  <option value="MS">MS</option>
+  <option value="MT">MT</option>
+  <option value="NC">NC</option>
+  <option value="ND">ND</option>
+  <option value="NE">NE</option>
+  <option value="NH">NH</option>
+  <option value="NJ">NJ</option>
+  <option value="NM">NM</option>
+  <option value="NV">NV</option>
+  <option value="NY">NY</option>
+  <option value="OH">OH</option>
+  <option value="OK">OK</option>
+  <option value="OR">OR</option>
+  <option value="PA">PA</option>
+  <option value="PR">PR</option>
+  <option value="RI">RI</option>
+  <option value="SC">SC</option>
+  <option value="SD">SD</option>
+  <option value="TN">TN</option>
+  <option value="TT">TT</option>
+  <option value="TX">TX</option>
+  <option value="UT">UT</option>
+  <option value="VA">VA</option>
+  <option value="VI">VI</option>
+  <option value="WA">WA</option>
+  <option value="WI">WI</option>
+  <option value="WV">WV</option>
+  <option value="WY">WY</option>
+</select>
+</td></tr>
+
+<tr>
+<td style="text-align: left;">City:</td>
+<td style="text-align: left;">
+<!-- <select name="City_A" id="city_A" onChange="setcities_A();"> -->
+<select name="City_A" id="city_A" onChange="setairportID_A();">
+  <option value="">Please select a City </option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td style="text-align: left;">airport ID:</td>
+<td style="text-align: left;">
+<select name="AirportID_A" id="airportID_A" onChange="set_A();">
+  <option value="">Please select an airport ID </option>
+</select>
+</td>
+</tr>
+
+</table>
+</form>
+</fieldset>
+
+
+<!--------------------------------------------------------------->
+<!-- This is my all .js file -->
+<!-- <img src="airplane.png" alt="Trulli" width="500" height="333"> -->
+<script type="text/javascript" src="dropdown_7.js"></script>
+<script type="text/javascript" src="globalvariables_2.js"></script>
+<script type="text/javascript" src= "midterm_global_21.js"></script>
+<script type="text/javascript" src= "midterm_document_7.js"></script>
+<script type="text/javascript" src= "midterm_map_6.js"></script>
+<script type="text/javascript" src= "midterm_table_3.js"></script>
+<script type="text/javascript" src= "midterm_flight_info_3.js"></script>
+<script type="text/javascript" src= "midterm_barplot1_5.js"></script>
+<script type="text/javascript" src= "midterm_barplot2_7.js"></script>
+<script type="text/javascript" src= "dep_pr_barplot_2.js"></script>
+<script type="text/javascript" src= "arr_pr_barplot_2.js"></script>
+<script type="text/javascript" src= "Columbus_barplot_4.js"></script>
+<script type="text/javascript" src= "date_timeline_3.js"></script>
+<script type="text/javascript" src= "pie_3.js"></script>
+
+</body> 
+</html>
