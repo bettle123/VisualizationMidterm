@@ -4,7 +4,7 @@
 @Date: 02/07/2017 <br />
 @Library: d3.js, Node.js <br />
 @Data: https://catalog.data.gov/dataset/airline-on-time-performance-and-causes-of-flight-delays-on-time-data <br />
-@Website: http://web.cse.ohio-state.edu/~su.672/5544/ <br/>
+@Website: https://suflight.000webhostapp.com <br/>
 This is my Vislualization midterm project.
 Our topic is Airline On-Time Performance and Causes of Flight Delays.
 1. Designed UI to let users select their interested flight and Illustrated the flights information (delay probability, delay time).
